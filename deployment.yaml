@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mlopsmajor
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mlopsmajor
+  template:
+    metadata:
+      labels:
+        app: mlopsmajor
+    spec:
+      containers:
+      - name: mlops-app
+        image: drvaluer/olivetti-classifier:latest
+        ports:
+        - containerPort: 5000
